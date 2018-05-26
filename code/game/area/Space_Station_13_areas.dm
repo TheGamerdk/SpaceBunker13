@@ -815,10 +815,16 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 
 //Security
 
+
+
 /area/security
 	name = "Security"
 	icon_state = "security"
 	ambientsounds = HIGHSEC
+
+/area/security/main_door
+	name = "Main Door Control"
+	icon_state = "security"
 
 /area/security/main
 	name = "Security Office"

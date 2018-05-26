@@ -69,3 +69,18 @@
 /obj/machinery/door/poddoor/try_to_crowbar(obj/item/I, mob/user)
 	if(stat & NOPOWER)
 		open(1)
+
+
+/obj/machinery/door/poddoor/reinforced
+	name = "reinforced blast door"
+	desc = "*Should be Blast proof* -HonkTech"
+	armor = list("melee" = 90, "bullet" = 100, "laser" = 100, "energy" = 100, "bomb" = 80, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 99)
+	damage_deflection = 90
+	max_integrity = 1000
+
+/obj/machinery/door/poddoor/try_to_crowbar(obj/item/I, mob/user)
+
+/obj/machinery/door/poddoor/reinforced/preopen
+	icon_state = "open"
+	density = FALSE
+	opacity = 0

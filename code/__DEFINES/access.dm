@@ -65,6 +65,11 @@
 #define ACCESS_NETWORK 67
 #define ACCESS_CLONING 68 //Cloning room
 
+//Bunker Access Begins
+#define ACCESS_DOOR_CONTROL 69
+
+//Bunker Access Ends
+
 	//BEGIN CENTCOM ACCESS
 	/*Should leave plenty of room if we need to add more access levels.
 	Mostly for admin fun times.*/
