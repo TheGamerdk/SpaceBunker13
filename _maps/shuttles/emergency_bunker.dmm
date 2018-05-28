@@ -1,0 +1,19 @@
+"a" = (/turf/template_noop,/area/template_noop)
+"b" = (/turf/closed/wall/mineral/titanium,/area/shuttle/escape)
+"c" = (/obj/effect/spawner/structure/window/shuttle,/turf/open/floor/plating,/area/shuttle/escape)
+"d" = (/obj/effect/spawner/structure/window/shuttle,/turf/open/space/basic,/area/shuttle/escape)
+"e" = (/turf/open/floor/mineral/titanium,/area/shuttle/escape)
+"f" = (/obj/machinery/door/airlock/titanium,/obj/docking_port/mobile/emergency{dheight = 0; dwidth = 4; height = 10; width = 10},/turf/open/floor/mineral/titanium,/area/shuttle/escape)
+
+(1,1,1) = {"
+aaabcbbaaa
+aadeeeecaa
+adeeeeeeca
+beeeeeeeeb
+feeeeeeeec
+beeeeeeeeb
+beeeeeeeeb
+aceeeeeeca
+aaceeeecaa
+aaabbcbaaa
+"}

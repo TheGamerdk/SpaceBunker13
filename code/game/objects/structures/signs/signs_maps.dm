@@ -45,3 +45,8 @@
 	name = "command department"
 	desc = "A direction sign, pointing out which way the Command department is."
 	icon_state = "direction_bridge"
+
+/obj/structure/sign/directions/lifesupport
+	name = "life support department"
+	desc = "A direction sign, pointing out which way the Life support department is."
+	icon_state = "direction_life"

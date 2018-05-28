@@ -31,11 +31,15 @@ SUBSYSTEM_DEF(mapping)
 	var/dmm_suite/loader
 
 /datum/controller/subsystem/mapping/PreInit()
+
+
 	if(!config)
 #ifdef FORCE_MAP
 		config = load_map_config(FORCE_MAP)
+		WARNING("[config]")
 #else
 		config = load_map_config(error_if_missing = FALSE)
+		WARNING("[config]")
 #endif
 	return ..()
 
@@ -311,6 +315,7 @@ GLOBAL_LIST_EMPTY(the_station_areas)
 
 	for(var/item in subtypesof(/datum/map_template/shuttle))
 		var/datum/map_template/shuttle/shuttle_type = item
+
 		if(!(initial(shuttle_type.suffix)))
 			continue
 
@@ -367,14 +372,14 @@ GLOBAL_LIST_EMPTY(the_station_areas)
 				away_level = template.load_new_z()
 			else
 				return
-	
+
 	message_admins("Admin [key_name_admin(usr)] has loaded [away_name] away mission.")
 	log_admin("Admin [key_name(usr)] has loaded [away_name] away mission.")
 	if(!away_level)
 		message_admins("Loading [away_name] failed!")
 		return
-	
-	
+
+
 	if(GLOB.the_gateway)
 		//Link any found away gate with station gate
 		var/obj/machinery/gateway/centeraway/new_gate

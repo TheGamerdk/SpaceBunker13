@@ -181,9 +181,11 @@
 	. = ..()
 
 /obj/docking_port/stationary/proc/load_roundstart()
+
 	if(json_key)
 		var/sid = SSmapping.config.shuttles[json_key]
 		roundstart_template = SSmapping.shuttle_templates[sid]
+		WARNING("sid: [sid], template: [roundstart_template], json: [json_key]")
 		if(!roundstart_template)
 			CRASH("json_key:[json_key] value \[[sid]\] resulted in a null shuttle template for [src]")
 	else if(roundstart_template) // passed a PATH
@@ -432,7 +434,7 @@
 		underlying_area_type = current_dock.area_type
 
 	var/list/old_turfs = return_ordered_turfs(x, y, z, dir)
-	
+
 	var/area/underlying_area
 	for(var/i in GLOB.sortedAreas)
 		var/area/place = i
@@ -450,7 +452,7 @@
 		underlying_area.contents += oldT
 		oldT.change_area(old_area, underlying_area)
 		oldT.empty(FALSE)
-		
+
 		// Here we locate the bottomost shuttle boundary and remove all turfs above it
 		var/list/baseturf_cache = oldT.baseturfs
 		for(var/k in 1 to length(baseturf_cache))

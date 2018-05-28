@@ -278,6 +278,12 @@
 	description = "On the smaller size with a modern design, this shuttle is for the crew who like the cosier things, while still being able to stretch their legs."
 	credit_cost = 1000
 
+/datum/map_template/shuttle/emergency/bunker
+	suffix = "bunker"
+	name = "BunkerStation Termination Pod"
+	description = "This Pod goes straight to \[REDACTED] to process the remaining staff."
+	credit_cost = 2000
+
 /datum/map_template/shuttle/ferry/base
 	suffix = "base"
 	name = "transport ferry"
