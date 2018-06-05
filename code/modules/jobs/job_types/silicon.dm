@@ -90,3 +90,23 @@ Cyborg
 /datum/job/cyborg/after_spawn(mob/living/silicon/robot/R, mob/M)
 	if(CONFIG_GET(flag/rename_cyborg))	//name can't be set in robot/New without the client
 		R.rename_self("cyborg", M.client)
+
+/*
+Android
+*/
+/datum/job/android
+	title = "Android"
+	flag = ANDROID
+	department_flag = ENGSEC
+	faction = "Station"
+	total_positions = 1
+	spawn_positions = 1
+	supervisors = "blah" //TODO: fix
+	selection_color = "#ddffdd"
+
+/datum/job/android/equip(mob/living/carbon/human/H, visualsOnly = FALSE, announce = TRUE, latejoin = FALSE)
+	return H.Androidize(FALSE, latejoin)
+
+/datum/job/android/after_spawn(mob/living/silicon/robot/R, mob/M)
+	if(CONFIG_GET(flag/rename_cyborg))	//name can't be set in robot/New without the client
+		R.rename_self("cyborg", M.client)

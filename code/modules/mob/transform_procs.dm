@@ -396,6 +396,48 @@
 	. = R
 	qdel(src)
 
+/mob/living/carbon/human/proc/Androidize(delete_items = 0, transfer_after = TRUE)
+	if (notransform)
+		return
+	for(var/obj/item/W in src)
+		if(delete_items)
+			qdel(W)
+		else
+			dropItemToGround(W)
+	regenerate_icons()
+	notransform = 1
+	canmove = 0
+	icon = null
+	invisibility = INVISIBILITY_MAXIMUM
+	for(var/t in bodyparts)
+		qdel(t)
+
+	var/mob/living/silicon/android/R = new /mob/living/silicon/android(loc)
+
+	R.gender = gender
+	R.invisibility = 0
+
+	if(mind)		//TODO
+		if(!transfer_after)
+			mind.active = FALSE
+		mind.transfer_to(R)
+	else if(transfer_after)
+		R.key = key
+
+	if (CONFIG_GET(flag/rename_cyborg))
+		R.rename_self("cyborg")
+
+	if(R.posibrain)
+		R.posibrain.name = "Android Interface: [real_name]"
+		if(R.posibrain.brainmob)
+			R.posibrain.brainmob.real_name = real_name //the name of the brain inside the cyborg is the robotized human's name.
+			R.posibrain.brainmob.name = real_name
+
+	R.job = "Android"
+	WARNING("Androidized someone")
+	. = R
+	qdel(src)
+
 //human -> alien
 /mob/living/carbon/human/proc/Alienize()
 	if (notransform)
